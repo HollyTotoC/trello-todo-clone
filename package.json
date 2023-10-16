@@ -16,6 +16,7 @@
     "core-js-pure": "^3.33.0",
     "encoding": "^0.1.13",
     "next": "13.5.4",
+    "openai": "^4.12.1",
     "prop-types": "^15.8.1",
     "react": "^18",
     "react-avatar": "^5.0.3",
