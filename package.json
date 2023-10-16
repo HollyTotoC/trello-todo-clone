@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.2",
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@types/react-beautiful-dnd": "^13.1.5",
     "appwrite": "^13.0.0",
