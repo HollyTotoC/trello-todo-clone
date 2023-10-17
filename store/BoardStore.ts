@@ -48,12 +48,19 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         newColumns.get(id)?.todos.splice(teskIndex, 1);
         set({ board: { columns: newColumns } });
         if (todo.image) {
-            await storage.deleteFile(
-                JSON.parse(todo.image).bucketId,
-                JSON.parse(todo.image).fileId
-            );
-        }
+            console.log("TODO IMAGE>>", todo.image);
+            let image: ImageType | null = null;
 
+            try {
+                image = JSON.parse(todo.image);
+            } catch (error) {
+                console.error("Error parsing todo.image:", error);
+            }
+
+            if (image) {
+                await storage.deleteFile(image.bucketId, image.fileId);
+            }
+        }
         await database.deleteDocument(
             process.env.NEXT_PUBLIC_DATABASE_ID!,
             process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
@@ -71,7 +78,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         columnId: TypedColumn,
         image?: File | null
     ) => {
-        let file: Image | undefined;
+        let file: ImageType | undefined;
         let imageString: string | undefined;
         if (image) {
             const fileUploaded = await uploadImage(image);

@@ -56,7 +56,7 @@ function Header() {
                         </button>
                     </form>
                     {/* Avatar */}
-                    <Avatar name="John Doe" round size="50" color="#0055D1" />
+                    <Avatar name="Toto Certa" round size="50" color="#0055D1" />
                 </div>
             </div>
 

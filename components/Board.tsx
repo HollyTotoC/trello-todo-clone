@@ -88,7 +88,7 @@ function Board() {
         <>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable
-                    droppableId="board"
+                    droppableId="boardId"
                     direction="horizontal"
                     type="column"
                 >
@@ -101,7 +101,7 @@ function Board() {
                             {Array.from(board.columns.entries()).map(
                                 ([id, column], index) => (
                                     <Column
-                                        key={id}
+                                        key={`column-${id}`}
                                         id={id}
                                         todos={column.todos}
                                         index={index}

@@ -31,7 +31,8 @@ function TodoCard({
     useEffect(() => {
         if (todo.image) {
             const fetchImage = async () => {
-                const url = await getUrl(todo.image!);
+                const image: ImageType = JSON.parse(todo.image!);
+                const url = await getUrl(image);
                 if (url) {
                     setImageUrl(url.toString());
                 }
